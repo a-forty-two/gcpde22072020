@@ -169,3 +169,34 @@ Chickmangloor 92.8, 9.4, [shaktiman]
 Place-> place.name, place.lat, place.lon, place.stations
 
 place-> struct, place.stations->array 
+
+Lunch break-> resuming at IST 2:40
+
+
+UNNEST  x ( a,b,c) -> x.a, x.b, x.c 
+
+
+Named Lengths, Dictionary
+
+(a,b,c )  --------- (a:1, b:2, c:2) 
+
+
+important components-> (This Module)
+Storage-> CloudSQL, Spanner, GCS
+Warehousing and Analytics-> BigQuery and BigTable
+Pipelines-> DataFlow 
+Wrangling-> DataPrep 
+IAM, Security, Monitoring (StackDriver) 
+
+Orchestration-> Composer 
+
+Documentation-> basic programs 
+
+- df = Spark.read.csv // from GCS
+- df written in HDFS 
+
+
+
+
+
+
