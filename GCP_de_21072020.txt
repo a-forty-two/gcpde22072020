@@ -1,0 +1,171 @@
+CLoud v/s On Prem-> renting/leasing v/s OWNING infra
+
+Big QUery-> Storage + Compute
+
+Storage-> allocated and deallocated as we create and drop tables
+
+Query-> SLOTS (CPU + RAM) 
+
+speed-> 100k rows/second, PETABYTE scale of data 
+
+2 types of SQL-> Standard SQL (ANSI 2011 compliant),
+	Legacy SQL 
+
+Teams interaction with DEng: 
+A) ML Engineer
+1) Latency-> how much time between cleanup/pipeline/ETL?
+	-> WHY?-> data will NOT be available to MODEL 
+2) editable -> add/manipulate COLUMN or ROW level? 
+	-> WHY?-> Feature Engineering, PCA, LDA
+
+
+data catalog-> manages metadata-> with help of TAGS, flags (marking
+columns as sensitive) 
+
+Stack Driver-> MONITOR the activities and log them
+1) Predict/Track COSTS
+	-> BigQuery-> conveys TIME and DATA PROCESSED
+	cost = f(time, data_processed) 
+	-> i have costs from last 6 months, then i can predict
+	future costs, and allocated budgets accordingly 
+2) Audit Logs -> who did what 
+3) more than 10 GB of data was processed->
+	-> an alert whenever this happened
+	-> ALERTS and NOTIFICATIONS can be setup on METRIC thresholds
+-> who would need?-> other data engineers (or Data auditors!)!
+
+if STRUCTURED data AND ready-to-visualize/analyze-> DataWarehouse
+	(directly=> lake will just be a buffer in between, may not
+	even be required)
+
+if data is NOT usable AS it is-> temp storage/staging-> GCS as DataLake
+	images, videos, CSS, js-> GCS(s3)
+	structured dirty data-> Cloud SQL 
+
+
+BLOB-> Binary Large Objects 
+segmentations of binary data streams are converted into objects
+LOW COST, highly scalable, no managment required
+Can be stored as Files also (for example, VHD-> too large to be broken
+into blobs) 
+
+
+3 Vs of Big Data-> Variety, Velocity, Volume 
+
+EL-> extract and load-> when data is DIRECTLY usable (as-is)
+	eg... AVRO files from a traveling food-truck (IoT streaming)
+	Parquet (Spark), ORC (optimized-row-columns)
+	3 file formats are direct plug-and-play
+
+
+Encryption
+- server -> NRT -> users will NOT come to KNOW!
+- CLIENT-> application's responsibility 
+
+Links:
+https://github.com/gregsramblings/google-cloud-4-words
+https://www.stitchdata.com/resources/oltp-vs-olap/#:~:text=OLTP%20and%20OLAP%3A%20The%20two,historical%20data%20from%20OLTP%20systems.
+BigQuery parquet/ORC demo: https://www.youtube.com/watch?v=l5I0knEcH4I&feature=youtu.be
+Dremel: SQL on LARGE PARALLEL PROCESSING: https://cloud.google.com/files/BigQueryTechnicalWP.pdf
+
+
+
+
+Big Table-> more than millions of rows inserted per second
+	-> or NO SQL analytical payloads
+	-> ~300ms latency 
+BigQuery is cheaper than BigTable 
+
+
+Create a new account-> Fname, lname, add... fields were FIXED!
+	-> SQL (COLUMN names) 
+	-> CloudSQL or Spanner (GCP)
+Ecommerce-> Product Description
+Collection=>
+TV=> { price:234, diagonal:30}
+Washing Machine => {price:100, load:15}
+Uncle Chips=> {price:10, flavor:salt, color:yellow}
+	-> MongoDB or any NoSQL (Column names are diff per record)
+	-> FireStore 
+
+Scalability:
+1) Cloud SQL: Vertically scalable (RAM-> 100GBs, 64 cores CPU),
+	Horizontal-> ONLY read nodes can be scaled 
+2) Spanner: Global availability, multi-write nodes
+
+ Spanner
+Ecommerce, Fintech -> across a country->
+-> mobile apps, website, external vendors 
+	-> MULTI read points
+
+IoT App-> Many sensors are writing into n IoT gateways,
+	-> over a ship/dam/college/office/on-prem/traffic
+	-> 1 WRITE point good enough
+	-> CLOUD SQL 
+
+Wordpress (App Engine) + MySQL (CloudSQL)
+
+
+BigQuery
+	- data related queries (join ops etc in data)-> NO EXAM!!!
+	- SCHEMA, Metadata, scalability, security
+		-> QUERIES to expect in Exam
+
+
+BigQuery-> SLOTS (CPU+RAM), 
+	-> TIME and Data Processed 
+
+SQLDW(Synase) + AWS RedShift -> CLUSTER -> NEED TO BE ON
+		-> billing VMs 
+
+
+Data Structure: Files, Strings, Trees, Linked Lists
+	-> During Editing-> instead of actually edit, memory is freed
+	and changes are published to a new memory structure!
+
+In Memory-> machine would restart
+Disk-> then until overwritten 
+
+example: web devs deploying on bad slot 
+Joins are AVOIDED=> Denormalize 
+
+SQL(OLTP)-> fname, lname, country
+	country, capital, currency 
+
+Analytics-> fname, lname, country, cap, cur (DENORMALIZE)
+		(diff file-> each column)
+	-> select count(fname) where cur=='USD'
+
+Fnmae (sep. files), lname, phone
+100 rows-> 1 del
+
+
+
+IAM-> Access is at dataset level-> all tables in dataset will be
+	accessible by all users allowed
+
+if you want FINER control (TABLE level control)-> it is not POSSIBLE
+but can be SIMULATED with VIEWS
+
+Views in BigQ can be PERSISTED -> main tables don't need to be repeatedly
+pinged for results (it is materialized-> automatically refreshed)
+
+Complex-> struct, arrays 
+
+BigQuery Load Data for EL ops:
+AVRO-> schema can be derived directly, no separate schema file required
+JSON/CSV-> because of structure, schema can be derived 
+	-> certain manual editing may be required
+	-> int, datetimes, units 
+
+
+People   (cityname, lat, lon, station_names)-> struct 
+		station_names-> var_length-> array 
+nesting-> struct (relation) and arrays (repeatation)
+
+Bandar Seri Begawan 192.8, 93.4, [monte, carlo, pikachu]
+Chickmangloor 92.8, 9.4, [shaktiman]
+
+Place-> place.name, place.lat, place.lon, place.stations
+
+place-> struct, place.stations->array 
