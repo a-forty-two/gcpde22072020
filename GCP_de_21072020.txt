@@ -195,7 +195,82 @@ Documentation-> basic programs
 - df = Spark.read.csv // from GCS
 - df written in HDFS 
 
+-> only for 1 level of nesting 
+	=> UNNEST-> flattens and converts into an OBJECT 
 
+Spark 3 contexts-> Spark Context (access everything in RAM/local),
+	batch (SQL Context), stream (Stream Context) 
+
+Resilient Distributed Datasets-> mini datastores containing SHARDED
+data!!!! 
+	-> default data structure for optimized queries 
+	-> default file format for persisting RDDs-> PARQUET 
+
+-> we are working on a iPYNB-> which is creating an executable
+PYTHON program for us to deploy!
+
+
+
+DataFlow-> Apache Beam
+Kubernetes-> cluster manager , orchestrate-> for eg.. docker 
+(driver)                                            (worker nodes)
+
+Run these clustered pipelines on 3 types of execution environments
+(RUNNERS-> exec env)
+- LOCAL RUNNER (local machine will be used to run pipeline)
+- cloud runner (cloud DataFlow) 
+- any datacenter VM 
+
+Runners -> executing transformation (PTransforms) on structures 
+	(PCollections)
+	-> immuatable 
+
+Watermarking-> handling late arrival of data
+	-> viewed at logging, monitoring and restarting 
+
+
+Runner-> DefaultRunner -> runs pipeline where it was written originally
+         DataFlowRunner-> runs on cloud dataflow 
+
+ParDo-> CAUTION 
+	1) code is FULLY serializable 
+	2) code should be THREAD SAFE 
+
+GroupKey-> data-> (k, [v1...vn])-> (k, iter<v1>..) 
+CoGroupByKey-> (k, (iter<v1>.., iter<w1>))
+
+methods for combining (Apache Beam):
+- .withoutDefaults-> global windowing
+- .asSingletonView-> non-global windowing 
+
+
+-> Apache-> most of the products are SINGLETONS 
+	-> class will have a MAX of 1 OBJECT
+
+-> SELECT-> where like-> process data
+
+-> metadata queries and some analytical queries
+	do not process any bytes and hence no billing! 
+
+metadata-> schema -> schema is cached in BigQuery 
+
+
+x = get_pipeline_output()
+
+PCollection|
+randomPipeline(t0) |
+transform1(x)   <- side input 
+
+--runner DataFlowRunner -> GCP
+
+-> default runner: DirectRunner -> run on local machine 
+	-> only 1 node present so local machine 
+
+
+ALL STREAMING-> FIXED time windows (length of time is always constant),
+	(size of data varies)
+
+in batch-> size of the data is constant, time can vary
 
 
 
