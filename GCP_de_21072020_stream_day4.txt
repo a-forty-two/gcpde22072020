@@ -1,0 +1,13 @@
+DataFlow=> serverless Apache beam pipelines! 
+
+2 kinds of data points: Bounded (batch) and Unbounded (stream)
+
+Windows:
+1) Stream are TIME based windows-> Fixed and SLIDING windows
+2) Batches are EVENT based windows-> Session windows 
+
+2 types of behaviors in event windows:
+1) Accumulating
+2) Discarding 
+
+break time-> 10:50 IST resuming 

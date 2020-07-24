@@ -1,0 +1,36 @@
+Big Data
+	- Batch-> SQL, Files, beams of pipelines! 
+
+IoT devices, sensors, robots-> throwing huge chunks of data!
+	-> FREQUENT
+	-> diff types of data-> telemetry, remote, update firmware
+	 		monitoring
+	-> over a period of time-> S X t = VOLUME of data 
+
+3 Vs of Big data:
+	- Velocity
+	- Variety
+	- VOLUME
+
+-> Pub/SUb -> publisher-subscriber architecture 
+	-> Pub/Sub DOES NOT STORE 
+		-> 7 days of saved storage not persistent!
+		-> PERSISTENT STORAGE-> absent -> store in GCS instead!
+		-> IT RETAINS the data for 7 days!!!
+
+Routers-> 2 jobs: forwarding and DROPPING!
+	-> ACL or ROUTING table! 
+Pub/Sub is a router-> it will forward/ or drop
+	-> Iot devices may not be available all the time
+		(During night hours, when factory is off)
+	-> data is temporary retained or saved so that other
+	GCP services can query data at-will!
+
+-> PUSH and PULL
+
+
+
+
+
+
+
