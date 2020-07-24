@@ -117,3 +117,62 @@ Exam-> MLOps -> KubeFlow, Pipelines (batch, realtime),
 	- Edge-> except for monitoring, security
 		-> telemetry-> async
 		
+
+
+n-high CPU-4 core
+ 128 slots -> each_machine X no._of_machines 
+
+scale->horizontal
+CLUSTER> vertically-> 
+
+CREATE a new cluster-> then shift your compute load 
+
+
+identify whether you need RAM, CPU or disk 
+	- High CPU machine for Composer 
+	- Apache Spark -> better RAM or disk (if in IN_DISK mode)
+
+
+Spark-> replication = 3, IN-mem -> more RAM , minimal disk consider
+
+process 10GB of data at a time-> in spark-> data X replication
+		=> data X 3 = 3x
+
+RAM= ? 10X 3 = 30GB + 10GB ( => to process 10GB of data in ONE-go,
+ i need 40 GB of ram
+
+
+ML automation is basically 3 activities:
+	1) Create a model with features EXTRACTed (y=mx+c)
+	2) Evaluate the model performance (comparing this y with
+		actual known results)
+	3) Predict the future values (if model is ok, use it)
+BigQuery-> 3 methods to do it 
+
+eigenvalue, eigenvector
+
+f(x) = all calc values y for every x => y = mx +c, y1 for x1, yn for nx!
+Model-> f(x), Label-> y1,y2...yn, input=> x1,x2...xn 
+weights -> m1,m2,..mn for x1,x2..xn respectively
+ ML.training_info <- select * from gives training progress!
+ ML.weights for weights post training  
+bias -> c
+
+2 kind of orchestration products:
+	- Composer (for all GCP activities)
+	- Kubeflow (AI or ML workloads) 
+
+2 kinds of Registeries:
+1) Container Registery -> docker and kubernetes
+2) key registery -> service sercrets (connection string storage for
+	an API connecting to db) 
+
+
+
+Pandas -> Panel Dataframes 
+Data set is total data, windows (or panels) of data from dataset
+are called DataFrames (size(dataFrame) <= size(dataset))
+
+extra info out of course:
+ML examples in repo:
+https://github.com/a-forty-two/cylons/blob/master/02_BreastCancerAnalysis.ipynb
