@@ -1,0 +1,119 @@
+
+
+DataFlow=> serverless Apache beam pipelines! 
+
+2 kinds of data points: Bounded (batch) and Unbounded (stream)
+
+Windows:
+1) Stream are TIME based windows-> Fixed and SLIDING windows
+2) Batches are EVENT based windows-> Session windows 
+
+2 types of behaviors in event windows:
+1) Accumulating
+2) Discarding 
+
+
+AI-> Mehcanical, electrical, chemical, electronic, genetic
+
+-> Machine Learning 
+	-> graph theory based (boundary/algorithm=> y=mx+c) 
+	-> pattern recognition (neural networks=> y' = m'x' + c')
+		- deep learning 
+		- regex (porter stemming)
+y = mx + c
+inference = weights * inputs + bias 
+
+Linear Regression, KNN, K-means
+Discrete and Combinatorial Math-> Graph Theory
+	Continous-> audio signal
+	discrete -> city population
+
+
+-> weather prediction
+	-> temp-> yester-> 23, day_before->22, before->21, 22, 23
+	21, 22, ? , 22, 21, 22, 23..... 
+	-> missing data = prev + next/2
+			= mean , median, any other formula
+		=> NONE OF THEM WAS WRONG!!!! 
+	=> if statistics makes sense=> ML with Graphs
+
+-> classrom-> 40 students-> 20 red color, 10 blue, 5 yellow, 5 purple
+	-> a new student enter classroom-> color = ?
+	-> red + blue/2 = green?
+	-> If above doesn't make sense, neither will it's graph!!!
+	-> new classes may be created that didn't exist!!!
+
+	-> we move to Deep Learning instead of Graphs!
+	-> We break these variables into smaller units/patters
+		-> if there was NO patter on the smaller UNIT
+		-> THEN there was NO pattern on the original data!!
+
+Blue-> (r,g,b) -> MATRIX representing pixels of sky, every cell
+	could again be a tuple!!! 
+		
+
+
+-> There was a king in land far away
+	-> hired data sc. -> happiness index of the kingdom
+
+	-> surveys, Q&A -> inference-> take steps 1,2,3 else
+	there will be a riot!!
+	-> king implemented 1,2,3-> 6 months later-> NO RIOT!!
+
+-> Do we reward DS for correct prediction, or hang them for false 
+	inference?
+	-> ML is PUREST form of GUESS
+	-> IT IS NOT MEANT TO BE ACCURATE
+	-> if there is high sense of precision, there is SOMETHING
+	WRONG in algo!!!!
+
+emotion recognition:
+	y = mx + c
+	emotion = weights * p_dist(happiness, sorrow, disgust...) + 
+		bias 
+final_emotion = SUM( p(fn(individual_emotions) ))= 1
+
+
+Ext. Links:
+https://mrbubu.pro/how-to-stop-wasting-money-on-google-bigquery-in-google-data-studio/
+datacamp, pluralsight, coursera -> python, sql, R
+
+Fill in the feedback please-> plz let me know via chat window
+	once done (link on chat window)
+
+Composer-> we will need to create CLUSTER beforehand as it takes
+15-20 mins
+
+
+Queries and sub-query-> no idea 
+
+Big query-> no actual, pointer manipulation
+	=> re-ordering the pointers-> across entire table/partition 
+	=> ORDER inside, re-order might again happen!!!
+	=> keep on the OUTERMOST query
+
+Tradeoff-> performance and availability 
+	d(per) + d(ava) = 1
+
+VPN-> internet is expensive!!! 
+	-> make-> router, gateway, server, isp, country, cont, 
+SMTP/ICMP/multicast-> native cloud email providers
+
+THings data engineers should worry about: (outside DE and DS)
+	-> DevOps (Docker , Kubernetes, CI/CD)
+	-> Security (IAM, RBAC, encry/hashing, roles & permissions,
+		basic sql injections, denial-of-services, botnet, 
+		data corruption, integrity, DLP(PII/SPDI), 
+	compliance(GDPR,ISO27001, PCI, HIPPA...} 
+	-> infra-> clustering (managed) v/s serverless,
+		scalability, high-availability & fault tolerance,
+		failovers, geo/regional redundancies or replications
+	-> performance & cost-> use calculator, predict what queries/
+	fns/UDF are more expensive than others
+
+Exam-> MLOps -> KubeFlow, Pipelines (batch, realtime), 
+	inference (production), dev/test-> non-enterprise 
+	- App engine, vm flask API, kubernetes clusters 	 
+	- Edge-> except for monitoring, security
+		-> telemetry-> async
+		
