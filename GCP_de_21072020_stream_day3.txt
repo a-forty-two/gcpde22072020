@@ -28,9 +28,38 @@ Pub/Sub is a router-> it will forward/ or drop
 
 -> PUSH and PULL
 
+Fan In-> load balancing less subsribers
+Fan out-> load balancing for multiple subsribers 
+
+All topics, subsribers, publishers their compute infra will be
+	loosely coupled-> can be anywhere
+	-> stored separately 
+
+-> snapshot, restore
+	-> use case 
+
+-> Incident Detection, Fraud Detection (customer request)
+lane: {direction: , lat:, long: ...}
 
 
+Scenario-> batch or stream 
+MCQ-> single, multiple, Arranging in the right sequence
 
+Pipeline step1 -> step 2...
 
+DE-> EL, ETL, ELT 
 
+EL-> data source (onprem, GCS,..) -> Data Warehouse [Batch]
+    data source-> Pub/Sub -> dataflow -> Data Warehouse [Stream] 
+	-> when data is ready to be analyzed/visulized
+ETL-> data source, (DataFlow or DataPrep) -> Data Warehouse 
+	datasource, pubsub -> dataflow or prep-> warehouse [stream]
+	=> don't want any more changes to analysis
+	=> the data to be analyzed needs to be first transformed 
+		(time stamps, currencies, UNITS (deg c, K, F) ) 
+ELT-> where multiple transformation are required on same master data
+	-> ENTIRE ORG data is same, but Marketing, sales, HR, tech
+	all have diff requirements from SAME DATA
 
+   Data source-> Data Lake => now do any transforms you like
+		specific to use cases  
